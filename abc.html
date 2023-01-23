@@ -1,0 +1,62 @@
+<label for="name-input">Name:</label>
+<input type="text" id="name-input" name="name" />
+<label for="email-input">Email:</label>
+<input type="email" id="email-input" name="email" />
+<button type="submit" onclick="submitForm()">Submit</button>
+
+
+<script type="text/javascript" src="data.json"></script>
+<!-- <script type="text/javascript" src="javascript.js"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+<script>
+  function submitForm() {
+
+    var file = ('file:///D:/data.json')
+
+
+    var oFReader = new FileReader();
+            oFReader.readAsDataURL(file);
+            oFReader.onload = function (oFREvent) {
+                document.getElementById("uploadTextValue").value = oFREvent.target.result; 
+                document.getElementById("obj").data = oFREvent.target.result;
+            };
+
+    // var rawFile = new XMLHttpRequest();
+    // rawFile.open("GET", file, false);
+    // rawFile.onreadystatechange = function ()
+    // {
+    //     if(rawFile.readyState === 4)
+    //     {
+    //         if(rawFile.status === 200 || rawFile.status == 0)
+    //         {
+    //             var allText = rawFile.responseText;
+    //             alert(allText);
+    //         }
+    //     }
+    // }
+    // rawFile.send(null);
+
+    // var data = {};
+    // var nameInput = document.getElementById("name-input");
+    // var emailInput = document.getElementById("email-input");
+
+    // data.name = nameInput.value;
+    // data.email = emailInput.value;
+
+    // var mydata = JSON.parse(data);
+    // alert(mydata[0].name);
+    // alert(mydata[0].email);
+
+    // fetch("./data.json")
+    //   .then((response) => response.json())
+    //   .then((json) => console.log(json));
+
+    // var jsonData = JSON.stringify(data);
+    // console.log(jsonData);
+    // var blob = new Blob([jsonData], { type: "application/json" });
+    // saveAs(blob, "data.json");
+
+    // You can now send jsonData to a server or do something else with it
+  }
+</script>
